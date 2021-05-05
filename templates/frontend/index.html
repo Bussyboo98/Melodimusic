@@ -1,0 +1,654 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+{% block title%}
+Melodi
+{% endblock %}
+
+{% block content %}
+<!-- banner area -->
+
+<div class="banner">
+	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner" role="listbox">
+			<div class="item active">
+				<img src="../../static/frontend/img/banner/wp4113322.jpg" alt="...">
+				<div class="container">
+					<!-- banner caption -->
+					<div class="carousel-caption slide-one">
+						<!-- heading -->
+						<h2 class="animated fadeInLeftBig"><i class="fa fa-music"></i> Melodi For You!</h2>
+						<!-- paragraph -->
+						<h3 class="animated fadeInRightBig">Find More Innovative &amp; Creative Music Albums.</h3>
+						
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<img src="../../static/frontend/img/banner/wp2051852.jpg" alt="...">
+				<div class="container">
+					<!-- banner caption -->
+					<div class="carousel-caption slide-two">
+						<!-- heading -->
+						<h2 class="animated fadeInLeftBig"><i class="fa fa-headphones"></i> Listen It...</h2>
+						<!-- paragraph -->
+						<h3 class="animated fadeInRightBig">Listen to the best rated Music.</h3>
+						
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<img src="../../static/frontend/img/banner/wp5560297.jpg" alt="...">
+				<div class="container">
+					<!-- banner caption -->
+					<div class="carousel-caption slide-two">
+						<!-- heading -->
+						<h2 class="animated fadeInLeftBig" style="color: black;"><i class="fa fa-headphones"></i> Download it...</h2>
+						<!-- paragraph -->
+						<h3 class="animated fadeInRightBig" style="color: black;">Download Your Favourite Song By Your Best Artiste.</h3>
+						
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<img src="../../static/frontend/img/banner/wp5119238.jpg" alt="...">
+				<div class="container">
+					<!-- banner caption -->
+					<div class="carousel-caption slide-two">
+						<!-- heading -->
+						<h2 class="animated fadeInLeftBig"><i class="fa fa-headphones"></i> Enjoy It...</h2>
+						<!-- paragraph -->
+						<h3 class="animated fadeInRightBig">Enjoy The latest Music <span style="color:blue;">MELODI</span></h3>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Controls -->
+		<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+			<span class="fa fa-arrow-left" aria-hidden="true"></span>
+		</a>
+		<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+			<span class="fa fa-arrow-right" aria-hidden="true"></span>
+		</a>
+
+	</div>
+</div>
+<!--/ banner end -->
+
+<!-- block for animate navigation menu -->
+<div class="nav-animate"></div>
+
+
+<!-- Hero block area -->
+<div id="latestalbum" class="hero pad">
+	<div class="container">
+		<!-- hero content -->
+		<div class="hero-content ">
+			<!-- heading -->
+			<h2>Latest Album</h2>
+			<hr>
+			<!-- paragraph -->
+			<p>We have the best <strong class="theme-color">Songs</strong> and now we control the world best <strong class="theme-color">Music</strong>.</p>
+		</div>
+		<!-- hero play list -->
+		<div class="hero-playlist">
+			<div class="row">
+				<div class="col-md-6 col-sm-6">
+					<!-- music album image -->
+					<h2 style="text-align: center;font-family: 'Girassol', cursive;">Music Of The Week</h2>
+					<div class="figure">
+						<!-- image -->
+						<img class="img-responsive" src="../../static/frontend/img/banner/hh.jpg" alt="" />
+						<!-- disk image -->
+						<img class="img-responsive disk" src="../../static/frontend/img/album/disk.png" alt="" />
+					</div>
+					<!-- album details -->
+					<div class="album-details">
+						<!-- title -->
+						<h4>Forever</h4>
+						<!-- composed by -->
+						<h5>Gyaike</h5>
+						<!-- paragraph -->
+						
+						<!-- button -->
+						<a href="#" class="btn btn-lg btn-theme" id="playNowBtn"><i class="fa fa-play"></i>&nbsp; Play Now</a>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<!-- play list -->
+					<div class="playlist-content">
+						<ul class="list-unstyled">
+							{% if mus %}
+							{% for m in mus %}
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{m.song}}</h4>
+									<p><strong>Artist</strong>: {{m.artiste}} &nbsp;|&nbsp; <strong>Type</strong></p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{m.post_music}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							{% endfor %}
+						{% endif %}
+						</ul>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--/ hero end -->
+
+<!-- promo -->
+<div class="promo parallax-one pad">
+	<div class="container">
+		<!-- promo element -->
+		<div class="promo-element ">
+			<!-- heading -->
+			<h3>Music An Art...</h3>
+			<!-- paragraph -->
+			<p>Music is an art form and cultural activity whose medium is sound organized in time. The common elements of music are <strong>pitch</strong>, <strong>rhythm</strong>, <strong>dynamics</strong> and the sonic qualities of <strong>timbre</strong> and <strong>texture</strong>.</p>
+			<!-- link -->
+			
+		</div>
+	</div>
+</div>
+<!--/ promo end -->
+
+<!-- featured abbum -->
+<div class="featured pad" id="featuredalbum">
+	<div class="container">
+		<!-- default heading -->
+		<div class="hero-content ">
+			<!-- heading -->
+			<h2 style="text-align: center;">Featured Album</h2>
+			<hr>
+		</div>
+		<!-- featured album elements -->
+		<div class="featured-element">
+			<div class="row">
+				{% if sng %}
+					{% for s in sng %}
+				<div class="col-md-4 col-sm-6">
+					
+					<!-- featured item -->
+					<div class="featured-item ">
+						<!-- image container -->
+						<div class="figure" style="min-height: 200px;">
+							<!-- image -->
+							<div style="max-height: 440px;">
+							<img class="img-responsive img-fluid w-100 h-100" src="{{s.post_image}}"  alt="" />
+							</div>
+							<!-- paragraph -->
+							<!-- <p>There are many variations of passages available, but the majority have suffered Lorem alteration in some form, by injected look even slightly believable.</p> -->
+						</div>
+						<!-- featured information -->
+						<div class="featured-item-info">
+							<!-- featured title -->
+							<h4>{{s.name}}</h4>
+							<!-- horizontal line -->
+							<hr />
+							<!-- some responce from social medial or web likes -->
+							<div style="background-color: blue; padding: 10px; border-radius: 10px;">
+								<audio style="margin-left: 15px;" controls="" name="media"><source src="{{s.post_music}}" type="audio/mpeg"></audio>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				{% endfor %}
+						{% endif %}
+			</div>
+		</div>
+	</div>
+</div>
+<!-- features end -->
+<!-- featured abbum -->
+<div class="featured pad" id="song">
+	<div class="container">
+		<!-- default heading -->
+		<div class="hero-content ">
+			<!-- heading -->
+			<h2 style="text-align: center;">SONGS</h2>
+			<hr>
+			<!-- paragraph -->
+			<p style="text-align: center;">Listen  <strong class="theme-color">Songs</strong> and now we control the world best <strong class="theme-color">Music</strong>.</p>
+		</div>
+		<!-- featured album elements -->
+		<div class="featured-element">
+			<div class="row">
+				{% if art %}
+					{% for r in art %}
+				<div class="col-md-4 col-sm-6">
+					<!-- featured item -->
+					<div class="featured-item ">
+						<!-- image container -->
+						<div class="figure">
+							<!-- image -->
+							<h4 style="text-align: center; text-transform: uppercase;">{{r.artiste}}</h4>
+							<img class="img-responsive" style="margin-left: 10px;" src="{{r.post_image}}" alt="" >
+								<a class="nav-link" data-toggle="modal" data-target="#exampleModal1"><h4 style="text-align: center;
+									cursor: pointer;">View Songs</h4></a></span>
+						</div>
+						<!-- featured information -->
+						<div class="featured-item-info">
+							<!-- featured title -->
+							
+							<!-- horizontal line -->
+							<hr />
+							
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+				{% endif %}
+				
+				{% if wiz %}
+					{% for w in wiz %}
+				<div class="col-md-4 col-sm-6">
+					<!-- featured item -->
+					<div class="featured-item ">
+						<!-- image container -->
+						<div class="figure">
+							<!-- image -->
+							<h4 style="text-align: center; text-transform: uppercase;">{{w.artiste}}</h4>
+							<div style="height: 450px;">
+								<img class="img-responsive" src="{{w.post_image}}" alt="" >
+							</div>
+						</div>	
+							<a class="nav-link" data-toggle="modal" data-target="#exampleModal2"><h4 style="text-align: center;
+								cursor: pointer;">View Songs</h4></a></span>
+						
+						<!-- featured information -->
+						<div class="featured-item-info">
+							
+							<hr />
+							<!-- 1024+ <span class="label label-theme">Like</span> &nbsp;&nbsp; 825+ <span class="label label-theme">Love</span></p> -->
+						</div>
+					</div>
+				</div>	
+				{% endfor %}
+				{% endif %}
+
+				{% if sim %}
+					{% for s in sim %}
+				<div class="col-md-4 col-sm-6">
+					<!-- featured item -->
+					<div class="featured-item ">
+						<!-- image container -->
+						<div class="figure">
+							<!-- image -->
+							<h4 style="text-align: center; text-transform: uppercase;">{{s.artiste}}</h4>
+							<img class="img-responsive" src="{{s.post_image}}" alt="" />
+							<a class="nav-link" data-toggle="modal" data-target="#exampleModal3"><h4 style="text-align: center;
+								cursor: pointer;">View Songs</h4></a></span>
+						</div>
+						<!-- featured information -->
+						<div class="featured-item-info">
+							
+							<hr />
+							<!-- 1024+ <span class="label label-theme">Like</span> &nbsp;&nbsp; 825+ <span class="label label-theme">Love</span></p> -->
+						</div>
+					</div>
+				</div>	
+				{% endfor %}
+				{% endif %}
+
+				{% if dra %}
+					{% for d in dra %}
+				<div class="col-md-4 col-sm-6">
+					<!-- featured item -->
+					<div class="featured-item ">
+						<!-- image container -->
+						<div class="figure">
+							<!-- image -->
+							<h4 style="text-align: center; text-transform: uppercase;">{{d.artiste}}</h4>
+							<div style="height: 360px;">
+							<img class="img-responsive" src="{{d.post_image}}" alt="" />
+							</div>
+						</div>
+						<a class="nav-link" data-toggle="modal" data-target="#exampleModal4"><h4 style="text-align: center;
+							cursor: pointer;">View Songs</h4></a></span>
+						<!-- featured information -->
+						<div class="featured-item-info">
+							
+							<hr />
+							<!-- 1024+ <span class="label label-theme">Like</span> &nbsp;&nbsp; 825+ <span class="label label-theme">Love</span></p> -->
+						</div>
+					</div>
+				</div>	
+				{% endfor %}
+				{% endif %}
+
+				{% if jfb %}
+					{% for j in jfb %}
+				<div class="col-md-4 col-sm-6">
+					<!-- featured item -->
+					<div class="featured-item ">
+						<!-- image container -->
+						<div class="figure">
+							<!-- image -->
+							<h4 style="text-align: center; text-transform: uppercase;">{{j.artiste}}</h4>
+							<img class="img-responsive" src="{{j.post_image}}" alt="" />
+							<a class="nav-link" data-toggle="modal" data-target="#exampleModal5"><h4 style="text-align: center;
+								cursor: pointer;">View Songs</h4></a></span>
+						</div>
+						<!-- featured information -->
+						<div class="featured-item-info">
+							
+							<hr />
+							<!-- 1024+ <span class="label label-theme">Like</span> &nbsp;&nbsp; 825+ <span class="label label-theme">Love</span></p> -->
+						</div>
+					</div>
+				</div>	
+				{% endfor %}
+				{% endif %}
+
+				{% if nic %}
+					{% for n in nic %}
+				<div class="col-md-4 col-sm-6">
+					<!-- featured item -->
+					<div class="featured-item ">
+						<!-- image container -->
+						<div class="figure">
+							<!-- image -->
+							<h4 style="text-align: center; text-transform: uppercase;">{{n.artiste}}</h4>
+							<div style="height: 360px;">
+								<img class="img-responsive" src="{{n.post_image}}" alt="" />
+							</div>
+						</div>
+						<a class="nav-link" data-toggle="modal" data-target="#exampleModal6"><h4 style="text-align: center;
+							cursor: pointer;">View Songs</h4></a></span>
+						<!-- featured information -->
+						<div class="featured-item-info">
+							
+							<hr>
+							<!-- 1024+ <span class="label label-theme">Like</span> &nbsp;&nbsp; 825+ <span class="label label-theme">Love</span></p> -->
+						</div>
+					</div>
+				</div>	
+				{% endfor %}
+				{% endif %}
+
+				
+				
+			</div>
+
+			<div class="row">
+				{% if alm %}
+					{% for m in alm %}
+				<div class="col-md-4 col-sm-6">
+					<!-- featured item -->
+					<div class="featured-item ">
+						<!-- image container -->
+						<div class="figure">
+							<!-- image -->
+							<h4 style="text-align: center; text-transform: uppercase;">{{m.artiste}}</h4>
+							<div style="height: 450px;">
+							<img class="img-responsive" style="margin-left: 10px;" src="{{m.post_image}}" alt="" >
+							</div>
+						</div>
+						<a class="nav-link" data-toggle="modal" data-target="#exampleModal7"><h4 style="text-align: center;
+							cursor: pointer;">View Songs</h4></a></span>
+						<!-- featured information -->
+						<div class="featured-item-info">
+							<!-- featured title -->
+							
+							<!-- horizontal line -->
+							<hr />
+							
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+				{% endif %}
+				
+				{% if gyk %}
+					{% for g in gyk %}
+				<div class="col-md-4 col-sm-6">
+					<!-- featured item -->
+					<div class="featured-item ">
+						<!-- image container -->
+						<div class="figure">
+							<!-- image -->
+							<h4 style="text-align: center; text-transform: uppercase;">{{g.artiste}}</h4>
+							<div style="height: 450px;">
+								<img class="img-responsive" src="{{g.post_image}}" alt="" >
+							</div>
+						</div>	
+							<a class="nav-link" data-toggle="modal" data-target="#exampleModal8"><h4 style="text-align: center;
+								cursor: pointer;">View Songs</h4></a></span>
+						
+						<!-- featured information -->
+						<div class="featured-item-info">
+							
+							<hr />
+							<!-- 1024+ <span class="label label-theme">Like</span> &nbsp;&nbsp; 825+ <span class="label label-theme">Love</span></p> -->
+						</div>
+					</div>
+				</div>	
+				{% endfor %}
+				{% endif %}
+
+				{% if bun %}
+					{% for u in bun %}
+				<div class="col-md-4 col-sm-6">
+					<!-- featured item -->
+					<div class="featured-item ">
+						<!-- image container -->
+						<div class="figure">
+							<!-- image -->
+							<h4 style="text-align: center; text-transform: uppercase;">{{u.artiste}}</h4>
+							<div style="height: 450px;">
+							<img class="img-responsive" src="{{u.post_image}}" alt="" />
+							</div>
+						</div>
+						<a class="nav-link" data-toggle="modal" data-target="#exampleModal9"><h4 style="text-align: center;
+							cursor: pointer;">View Songs</h4></a></span>
+						<!-- featured information -->
+						<div class="featured-item-info">
+							
+							<hr />
+							<!-- 1024+ <span class="label label-theme">Like</span> &nbsp;&nbsp; 825+ <span class="label label-theme">Love</span></p> -->
+						</div>
+					</div>
+				</div>	
+				{% endfor %}
+				{% endif %}
+
+				{% if foe %}
+					{% for f in foe %}
+				<div class="col-md-4 col-sm-6">
+					<!-- featured item -->
+					<div class="featured-item ">
+						<!-- image container -->
+						<div class="figure">
+							<!-- image -->
+							<h4 style="text-align: center; text-transform: uppercase;">{{f.artiste}}</h4>
+							<div style="height: 360px;">
+							<img class="img-responsive" src="{{f.post_image}}" alt="" />
+							</div>
+						</div>
+						<a class="nav-link" data-toggle="modal" data-target="#exampleModal10"><h4 style="text-align: center;
+							cursor: pointer;">View Songs</h4></a></span>
+						<!-- featured information -->
+						<div class="featured-item-info">
+							
+							<hr />
+							<!-- 1024+ <span class="label label-theme">Like</span> &nbsp;&nbsp; 825+ <span class="label label-theme">Love</span></p> -->
+						</div>
+					</div>
+				</div>	
+				{% endfor %}
+				{% endif %}
+
+				{% if ten %}
+					{% for t in ten %}
+				<div class="col-md-4 col-sm-6">
+					<!-- featured item -->
+					<div class="featured-item ">
+						<!-- image container -->
+						<div class="figure">
+							<!-- image -->
+							<h4 style="text-align: center; text-transform: uppercase;">{{t.artiste}}</h4>
+							<img class="img-responsive" src="{{t.post_image}}" alt="" />
+							<a class="nav-link" data-toggle="modal" data-target="#exampleModal11"><h4 style="text-align: center;
+								cursor: pointer;">View Songs</h4></a></span>
+						</div>
+						<!-- featured information -->
+						<div class="featured-item-info">
+							
+							<hr />
+							<!-- 1024+ <span class="label label-theme">Like</span> &nbsp;&nbsp; 825+ <span class="label label-theme">Love</span></p> -->
+						</div>
+					</div>
+				</div>	
+				{% endfor %}
+				{% endif %}
+
+				{% if cup %}
+					{% for c in cup %}
+				<div class="col-md-4 col-sm-6">
+					<!-- featured item -->
+					<div class="featured-item ">
+						<!-- image container -->
+						<div class="figure">
+							<!-- image -->
+							<h4 style="text-align: center; text-transform: uppercase;">{{c.artiste}}</h4>
+							<div style="height: 360px;">
+								<img class="img-responsive" src="{{c.post_image}}" alt="" />
+							</div>
+						</div>
+						<a class="nav-link" data-toggle="modal" data-target="#exampleModal12"><h4 style="text-align: center;
+							cursor: pointer;">View Songs</h4></a></span>
+						<!-- featured information -->
+						<div class="featured-item-info">
+							
+							<hr>
+							<!-- 1024+ <span class="label label-theme">Like</span> &nbsp;&nbsp; 825+ <span class="label label-theme">Love</span></p> -->
+						</div>
+					</div>
+				</div>	
+				{% endfor %}
+				{% endif %}
+
+				
+				
+			</div>
+		</div>
+	</div>
+</div>
+<!-- features end -->
+
+
+<div class="promo parallax-one pad">
+	<div class="container">
+		<!-- promo element -->
+		<div class="promo-element ">
+			<!-- heading -->
+			<h3 style="font-family: 'Pacifico', cursive;">MELODI...</h3>
+			<!-- paragraph -->
+			<p style="font-family: 'Pacifico', cursive;">Melodi can name the unnameable and communicate the unknowable
+				Music in the soul can be heard by the universe .</p>
+				<p style="font-family: 'Pacifico', cursive;">You have to, take a deep breath. and allow the music to flow through you. Revel in it, allow yourself to awe. When you play allow the music to break your heart with its beauty.</p>
+			<!-- link -->
+			
+		</div>
+	</div>
+</div>
+<!-- meet -->
+<!-- contact -->
+<div class="contact pad" id="contact">
+	<div class="container">
+		<!-- default heading -->
+		<div class="hero-content ">
+			<!-- heading -->
+			<h2 style="text-align: center;">Contact Us</h2>
+			<hr>
+			<!-- paragraph -->
+			<!-- <p style="text-align: center;">Listen  <strong class="theme-color">Songs</strong> and now we control the world best <strong class="theme-color">Music</strong>.</p> -->
+		</div>
+		<div class="row">	
+			<div class="col-md-4 col-sm-4">
+				<!-- contact item -->
+				<div class="contact-item ">
+					<!-- big icon -->
+					<i class="fa fa-street-view"></i>
+					<!-- contact details  -->
+					<span class="contact-details">5 Abbey Street Ajegunle Ikorodu Road, Lagos, Nigeria.</span>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-4">
+				<!-- contact item -->
+				<div class="contact-item ">
+					<!-- big icon -->
+					<i class="fa fa-envelope"></i>
+					<!-- contact details  -->
+					<span class="contact-details">ogunburebusayo.j@gmail.com</span>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-4">
+				<!-- contact item -->
+				<div class="contact-item ">
+					<!-- big icon -->
+					<i class="fa fa-phone"></i>
+					<!-- contact details  -->
+					<span class="contact-details">081 180 84184</span>
+				</div>
+			</div>
+		</div>
+		<!-- form content -->
+		<div class="form-content ">
+			<!-- paragraph -->
+			<p>Do you have any idea in your mind? Drop us a line.</p>
+			<form method="post" action=""  autocomplete="off">
+				{% if messages %}
+					{% for m in messages%}
+						<div class="alert {{ m.tags }}">{{ m }}</div>
+					{% endfor %}
+				{% endif %}
+				<div class="row">
+					<div class="col-md-6 col-sm-6">
+						<div class="form-group">
+							<label for="name">Name</label>
+							<input type="text" class="form-control" required id="name" name="name" placeholder="Enter name">
+						</div>
+						<div class="form-group">
+							<label for="email">Email</label>
+							<input type="email" class="form-control" required id="email" name="email" placeholder="Enter email">
+						</div>
+						<div class="form-group">
+							<label for="phone">Phone</label>
+							<input type="text" class="form-control" required id="phone" name="phone" placeholder="Enter phone">
+						</div>
+					</div>
+					<div class="col-md-6 col-sm-6">
+						<div class="form-group">
+							<label for="message">Message</label>
+							<textarea class="form-control" required id="message" name="message" rows="9" placeholder="Enter message"></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="text-center">
+					<button type="submit" class="btn btn-lg btn-theme">Send Message</button>
+				</div>
+				{% csrf_token %}
+			</form>
+									
+		</div>
+
+	</div>
+</div>
+<!-- contact end -->
+			
+{% endblock %}

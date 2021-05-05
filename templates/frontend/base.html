@@ -1,0 +1,1766 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+			{% block title%}
+
+			{% endblock%}
+		</title>
+		<!-- Description, Keywords and Author -->
+		<meta name="description" content="Your description">
+		<meta name="keywords" content="Your,Keywords">
+		<meta name="author" content="HimanshuGupta">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- Styles -->
+		<!-- Bootstrap CSS -->
+		<link href="{% static 'frontend/css/bootstrap.min.css' %}" rel="stylesheet">	
+		<!-- Animate CSS -->
+		<link href="{% static 'frontend/css/animate.min.css' %}" rel="stylesheet">
+		<!-- Basic stylesheet -->
+		<link rel="stylesheet" href="{% static 'frontend/css/owl.carousel.css' %}">
+		<!-- Font awesome CSS -->
+		<link href="{% static 'frontend/css/font-awesome.min.css' %}" rel="stylesheet">		
+		<!-- Custom CSS -->
+		<link href="{% static 'frontend/css/style.css' %}" rel="stylesheet">
+		<link href="{% static 'frontend/css/style-color.css' %}" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Girassol&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+		
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="{% static 'frontend/img/logo/favicon.ico' %}">
+	</head>
+	
+	<body>
+		
+		<!-- modal for booking ticket form -->
+		<div class="modal fade" id="bookTicket" tabindex="-1" role="dialog" aria-labelledby="BookTicket">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">Name of The Event &nbsp; <small><span class="label label-success">Available</span> &nbsp; <span class="label label-danger">Not Available</span></small></h4>
+					</div>
+					<!-- form for events ticket booking -->
+					<form>
+						<div class="modal-body">
+							<div class="form-group">
+								<label for="exampleInputEmail1">Email</label>
+								<input type="email" class="form-control" id="exampleInputEmail1" placeholder="example@mail.com">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputContact">Contact</label>
+								<input type="text" class="form-control" id="exampleInputContact" placeholder="+91 55 5555 5555">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputSeats">Number of Tickets</label>
+								<select class="form-control" id="exampleInputSeats">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox"> I accept the Terms of Service
+								</label>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<!-- link to payment gatway here -->
+							<button type="button" class="btn btn-primary">Book Now</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<!-- wrapper -->
+		<div class="wrapper" id="home">
+		
+			<!-- header area -->
+			<header>
+				<!-- secondary menu -->
+				<nav class="secondary-menu">
+					<div class="container">
+						<!-- secondary menu left link area -->
+						<div class="sm-left">
+							<strong>Phone</strong>:&nbsp; <a href="tel://08118084185">081 180 84185</a>&nbsp;&nbsp;&nbsp;&nbsp;
+							<strong>E-mail</strong>:&nbsp; <a href="mailto:ogunburebusayo.j@gmail.com">ogunburebusayo.j@gmail.com</a>
+						</div>
+						<!-- secondary menu right link area -->
+						
+						<div class="clearfix"></div>
+					</div>
+				</nav>
+				<!-- primary menu -->
+				<nav class="navbar navbar-fixed-top navbar-default">
+					<div class="container">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<!-- logo area -->
+							<a class="navbar-brand" href="#home">
+								<!-- logo image -->
+								<img class="img-responsive" src="img/logo/logo.png" alt="" />
+							</a>
+						</div>
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav navbar-right">
+								<li><a href="#latestalbum">Latest Album</a></li>
+								<li><a href="#featuredalbum">Featured Album</a></li>
+								<li><a href="#song">Songs</a></li>
+								<li><a href="#team">Team</a></li>
+								<li><a href="#contact">Contact</a></li>
+							</ul>
+						</div><!-- /.navbar-collapse -->
+					</div><!-- /.container-fluid -->
+				</nav>
+			</header>
+			<!--/ header end -->
+			{% block content%}
+
+			{% endblock%}
+			<!-- banner area -->
+			<footer style="background-color: black;">
+				<div class="container">
+					<!-- social media links -->
+					<div class="social">
+						<a class="h-facebook" href=""><i class="fa fa-facebook"></i></a>
+						<a class="h-google" href="tel://08118084185"><i class="fa fa-whatsapp"></i></a>
+						<a class="h-twitter" href="#"><i class="fa fa-twitter"></i></a>
+					</div>
+					<!-- copy right -->
+					<p class="copy-right">&copy; copyright 2021, All rights are reserved.</p>
+				</div>
+			</footer>
+			<!-- footer end -->
+			
+			<!-- Scroll to top -->
+			<span class="totop"><a href="#"><i class="fa fa-chevron-up"></i></a></span> 
+			
+		</div>
+		
+		<!-- Javascript files -->
+		<!-- jQuery -->
+		<script src="{% static 'frontend/js/jquery.js' %}"></script>
+		<!-- Bootstrap JS -->
+		<script src="{% static 'frontend/js/bootstrap.min.js' %}"></script>
+		<!-- WayPoints JS -->
+		<script src="{% static 'frontend/js/waypoints.min.js' %}"></script>
+		<!-- Include js plugin -->
+		<script src="{% static 'frontend/js/owl.carousel.min.js' %}"></script>
+		<!-- One Page Nav -->
+		<script src="{% static 'frontend/js/jquery.nav.js' %}"></script>
+		<!-- Respond JS for IE8 -->
+		<script src="{% static 'frontend/js/respond.min.js' %}"></script>
+		<!-- HTML5 Support for IE -->
+		<script src="{% static 'frontend/js/html5shiv.js' %}"></script>
+		<!-- Custom JS -->
+		<script src="{% static 'frontend/js/custom.js' %}"></script>
+
+
+		<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+			<div class="modal-dialog" role="document">
+				{% if art %}
+					{% for r in art %}
+			  <div class="modal-content" style="background-image: url({{r.post_image}}); background-size: cover; background-position: 800px;">
+				<div class="modal-header">
+				  <h5 class="modal-title" id="exampleModalLabel" style="text-transform: uppercase; font-size: 30px; text-align: center;
+				  font-weight: 700; color: white;">  {{r.artiste}} </h5>
+				  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				  </button>
+				</div>
+				<div class="modal-body" >
+					<div class="playlist-content">
+						<ul class="list-unstyled">
+							<li class="playlist-number" style="background-color: transparent;  color: white;">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{r.song}}</h4>
+									<p><strong>Artist</strong>: {{r.artiste}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{r.post_music}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							
+							<li class="playlist-number" style="background-color: transparent;  color:white">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{r.song2}}</h4>
+									<p><strong>Artist</strong>: {{r.artiste2}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{r.post_music2}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number" style="background-color: transparent;  color:white">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{r.song3}}</h4>
+									<p><strong>Artist</strong>: {{r.artiste3}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{r.post_music3}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number" style="background-color: transparent;  color:white">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{r.song4}}</h4>
+									<p><strong>Artist</strong>: {{r.artiste4}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{r.post_music4}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number" style="background-color: transparent;  color:white">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{r.song5}}</h4>
+									<p><strong>Artist</strong>: {{r.artiste5}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{r.post_music5}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number" style="background-color: transparent;  color:white">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{r.song6}}</h4>
+									<p><strong>Artist</strong>: {{r.artiste6}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{r.post_music6}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number" style="background-color: transparent;  color:white">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{r.song7}}</h4>
+									<p><strong>Artist</strong>: {{r.artiste7}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{r.post_music7}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number" style="background-color: transparent;  color:white">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{r.song8}}</h4>
+									<p><strong>Artist</strong>: {{r.artiste8}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{r.post_music8}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number" style="background-color: transparent;  color:white">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{r.song9}}</h4>
+									<p><strong>Artist</strong>: {{r.artiste9}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{r.post_music9}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number" style="background-color: transparent;  color:white">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{r.song10}}</h4>
+									<p><strong>Artist</strong>: {{r.artiste10}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{r.post_music10}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							
+						</ul>
+					</div>
+				</div>
+				<div class="modal-footer">
+				  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+				 
+				</div>
+			  </div>
+			  {% endfor %}
+						{% endif %}
+			</div>
+		</div>
+
+		<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+			<div class="modal-dialog" role="document">
+				{% if wiz %}
+					{% for w in wiz %}
+			  <div class="modal-content" style="background-image: url({{w.post_image}}); background-size: cover; background-position: 700px;">
+				<div class="modal-header">
+				  <h5 class="modal-title" id="exampleModalLabel" style="text-transform: uppercase; font-size: 30px; text-align: center;
+				  font-weight: 700; color: white;">  {{w.artiste}} </h5>
+				  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				  </button>
+				</div>
+				<div class="modal-body" >
+					<div class="playlist-content">
+						<ul class="list-unstyled" style="color: white;">
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{w.song}}</h4>
+									<p><strong>Artist</strong>: {{w.artiste}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{w.post_music}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{w.song2}}</h4>
+									<p><strong>Artist</strong>: {{w.artiste2}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{w.post_music2}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{w.song3}}</h4>
+									<p><strong>Artist</strong>: {{w.artiste3}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{w.post_music3}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{w.song4}}</h4>
+									<p><strong>Artist</strong>: {{w.artiste4}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{w.post_music4}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{w.song5}}</h4>
+									<p><strong>Artist</strong>: {{w.artiste5}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{w.post_music5}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{w.song6}}</h4>
+									<p><strong>Artist</strong>: {{w.artiste6}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{w.post_music6}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{w.song7}}</h4>
+									<p><strong>Artist</strong>: {{w.artiste7}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{w.post_music7}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{w.song8}}</h4>
+									<p><strong>Artist</strong>: {{w.artiste8}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{w.post_music8}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{w.song9}}</h4>
+									<p><strong>Artist</strong>: {{w.artiste9}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{w.post_music9}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{w.song10}}</h4>
+									<p><strong>Artist</strong>: {{w.artiste10}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{r.post_music10}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							
+						</ul>
+					</div>
+				</div>
+				<div class="modal-footer">
+				  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+				 
+				</div>
+			  </div>
+			  {% endfor %}
+						{% endif %}
+			</div>
+		</div>
+
+		<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+			<div class="modal-dialog" role="document">
+				{% if sim %}
+					{% for s in sim %}
+			  <div class="modal-content" style="background-image: url({{s.post_image}});">
+				<div class="modal-header">
+				  <h5 class="modal-title" id="exampleModalLabel" style="text-transform: uppercase; font-size: 30px; text-align: center;
+				  font-weight: 700; color: white;">  {{s.artiste}} </h5>
+				  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				  </button>
+				</div>
+				<div class="modal-body" >
+					<div class="playlist-content">
+						<ul class="list-unstyled" style="color: white;">
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{s.song}}</h4>
+									<p><strong>Artist</strong>: {{s.artiste}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{s.post_music}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{s.song2}}</h4>
+									<p><strong>Artist</strong>: {{s.artiste2}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{s.post_music2}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{s.song3}}</h4>
+									<p><strong>Artist</strong>: {{s.artiste3}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{s.post_music3}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{s.song4}}</h4>
+									<p><strong>Artist</strong>: {{s.artiste4}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{s.post_music4}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{s.song5}}</h4>
+									<p><strong>Artist</strong>: {{s.artiste5}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{s.post_music5}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{s.song6}}</h4>
+									<p><strong>Artist</strong>: {{s.artiste6}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{s.post_music6}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{s.song7}}</h4>
+									<p><strong>Artist</strong>: {{s.artiste7}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{s.post_music7}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{s.song8}}</h4>
+									<p><strong>Artist</strong>: {{s.artiste8}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{s.post_music8}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{s.song9}}</h4>
+									<p><strong>Artist</strong>: {{s.artiste9}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{s.post_music9}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{s.song10}}</h4>
+									<p><strong>Artist</strong>: {{s.artiste10}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{s.post_music10}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							
+						</ul>
+					</div>
+				</div>
+				<div class="modal-footer">
+				  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+				 
+				</div>
+			  </div>
+			  {% endfor %}
+						{% endif %}
+			</div>
+		</div>
+
+		<div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+			<div class="modal-dialog" role="document">
+				{% if dra %}
+					{% for d in dra %}
+			  <div class="modal-content" style="background-image: url({{d.post_image}}); background-position:; background-size: cover; background-repeat: no-repeat;">
+				<div class="modal-header">
+				  <h5 class="modal-title" id="exampleModalLabel" style="text-transform: uppercase; font-size: 30px; text-align: center;
+				  font-weight: 700; color: white;">  {{d.artiste}} </h5>
+				  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				  </button>
+				</div>
+				<div class="modal-body" >
+					<div class="playlist-content">
+						<ul class="list-unstyled" style="color: white;">
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{d.song}}</h4>
+									<p><strong>Artist</strong>: {{d.artiste}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{d.post_music}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{d.song2}}</h4>
+									<p><strong>Artist</strong>: {{d.artiste2}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{d.post_music2}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{d.song3}}</h4>
+									<p><strong>Artist</strong>: {{d.artiste3}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{d.post_music3}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{d.song4}}</h4>
+									<p><strong>Artist</strong>: {{d.artiste4}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{d.post_music4}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{d.song5}}</h4>
+									<p><strong>Artist</strong>: {{d.artiste5}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{d.post_music5}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{d.song6}}</h4>
+									<p><strong>Artist</strong>: {{d.artiste6}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{d.post_music6}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{d.song7}}</h4>
+									<p><strong>Artist</strong>: {{d.artiste7}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{d.post_music7}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							
+						</ul>
+					</div>
+				</div>
+				<div class="modal-footer">
+				  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+				 
+				</div>
+			  </div>
+			  {% endfor %}
+						{% endif %}
+			</div>
+		</div>
+
+		<div class="modal fade" id="exampleModal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+			<div class="modal-dialog" role="document">
+				{% if jfb %}
+					{% for j in jfb %}
+			  <div class="modal-content" style="background-image: url({{j.post_image}}); background-size: cover; background-position: 800px;">
+				<div class="modal-header">
+				  <h5 class="modal-title" id="exampleModalLabel" style="text-transform: uppercase; font-size: 30px; text-align: center;
+				  font-weight: 700; color: white;">  {{j.artiste}} </h5>
+				  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				  </button>
+				</div>
+				<div class="modal-body" >
+					<div class="playlist-content">
+						<ul class="list-unstyled" style="color: white;">
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{j.song}}</h4>
+									<p><strong>Artist</strong>: {{j.artiste}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{j.post_music}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{j.song2}}</h4>
+									<p><strong>Artist</strong>: {{j.artiste2}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{j.post_music2}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{j.song3}}</h4>
+									<p><strong>Artist</strong>: {{j.artiste3}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{j.post_music3}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{j.song4}}</h4>
+									<p><strong>Artist</strong>: {{j.artiste4}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{j.post_music4}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{j.song5}}</h4>
+									<p><strong>Artist</strong>: {{j.artiste5}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{j.post_music5}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{j.song6}}</h4>
+									<p><strong>Artist</strong>: {{j.artiste6}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{j.post_music6}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{j.song7}}</h4>
+									<p><strong>Artist</strong>: {{j.artiste7}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{j.post_music7}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{j.song8}}</h4>
+									<p><strong>Artist</strong>: {{j.artiste8}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{j.post_music8}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{j.song9}}</h4>
+									<p><strong>Artist</strong>: {{j.artiste9}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{j.post_music9}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{j.song10}}</h4>
+									<p><strong>Artist</strong>: {{j.artiste10}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{j.post_music10}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							
+						</ul>
+					</div>
+				</div>
+				<div class="modal-footer">
+				  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+				 
+				</div>
+			  </div>
+			  {% endfor %}
+						{% endif %}
+			</div>
+		</div>
+
+		<div class="modal fade" id="exampleModal6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+			<div class="modal-dialog" role="document">
+				{% if nic %}
+					{% for n in nic %}
+			  <div class="modal-content" style="background-image: url({{n.post_image}}); background-size: cover;">
+				<div class="modal-header">
+				  <h5 class="modal-title" id="exampleModalLabel" style="text-transform: uppercase; font-size: 30px; text-align: center;
+				  font-weight: 700;">  {{n.artiste}} </h5>
+				  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				  </button>
+				</div>
+				<div class="modal-body" >
+					<div class="playlist-content">
+						<ul class="list-unstyled">
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{n.song}}</h4>
+									<p><strong>Artist</strong>: {{n.artiste}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{n.post_music}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{n.song2}}</h4>
+									<p><strong>Artist</strong>: {{n.artiste2}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{n.post_music2}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{n.song3}}</h4>
+									<p><strong>Artist</strong>: {{n.artiste3}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{n.post_music3}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{n.song4}}</h4>
+									<p><strong>Artist</strong>: {{n.artiste4}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{n.post_music4}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{n.song5}}</h4>
+									<p><strong>Artist</strong>: {{n.artiste5}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{n.post_music5}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{n.song6}}</h4>
+									<p><strong>Artist</strong>: {{n.artiste6}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{n.post_music6}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="modal-footer">
+				  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+				 
+				</div>
+			  </div>
+			  {% endfor %}
+						{% endif %}
+			</div>
+		</div>
+
+		<div class="modal fade" id="exampleModal7" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+			<div class="modal-dialog" role="document">
+				{% if alm %}
+					{% for m in alm %}
+			  <div class="modal-content" style="background-image: url({{m.post_image}}); background-size: cover;">
+				<div class="modal-header">
+				  <h5 class="modal-title" id="exampleModalLabel" style="text-transform: uppercase; font-size: 30px; text-align: center;
+				  font-weight: 700; color: rgb(255, 1, 1);">  {{m.artiste}} </h5>
+				  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				  </button>
+				</div>
+				<div class="modal-body" >
+					<div class="playlist-content">
+						<ul class="list-unstyled" style="color:rgb(255, 0, 0)">
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{m.song}}</h4>
+									<p><strong>Artist</strong>: {{m.artiste}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{m.post_music}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{m.song2}}</h4>
+									<p><strong>Artist</strong>: {{m.artiste2}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{m.post_music2}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{m.song3}}</h4>
+									<p><strong>Artist</strong>: {{m.artiste3}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{m.post_music3}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{m.song4}}</h4>
+									<p><strong>Artist</strong>: {{m.artiste4}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{m.post_music4}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{m.song5}}</h4>
+									<p><strong>Artist</strong>: {{m.artiste5}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{m.post_music5}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{m.song6}}</h4>
+									<p><strong>Artist</strong>: {{m.artiste6}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{m.post_music6}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							
+							
+						</ul>
+					</div>
+				</div>
+				<div class="modal-footer">
+				  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+				 
+				</div>
+			  </div>
+			  {% endfor %}
+						{% endif %}
+			</div>
+		</div>
+
+		<div class="modal fade" id="exampleModal8" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+			<div class="modal-dialog" role="document">
+				{% if gyk %}
+					{% for g in gyk %}
+			  <div class="modal-content" style="background-image: url({{g.post_image}});">
+				<div class="modal-header">
+				  <h5 class="modal-title" id="exampleModalLabel" style="text-transform: uppercase; font-size: 30px; text-align: center;
+				  font-weight: 700;">  {{g.artiste}} </h5>
+				  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				  </button>
+				</div>
+				<div class="modal-body" >
+					<div class="playlist-content">
+						<ul class="list-unstyled">
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{g.song}}</h4>
+									<p><strong>Artist</strong>: {{g.artiste}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{g.post_music}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{g.song2}}</h4>
+									<p><strong>Artist</strong>: {{g.artiste2}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{g.post_music2}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{g.song3}}</h4>
+									<p><strong>Artist</strong>: {{g.artiste3}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{g.post_music3}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{g.song4}}</h4>
+									<p><strong>Artist</strong>: {{g.artiste4}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{g.post_music4}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{g.song5}}</h4>
+									<p><strong>Artist</strong>: {{g.artiste5}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{g.post_music5}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{g.song7}}</h4>
+									<p><strong>Artist</strong>: {{g.artiste7}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{g.post_music7}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{g.song8}}</h4>
+									<p><strong>Artist</strong>: {{g.artiste8}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{g.post_music8}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+														
+						</ul>
+					</div>
+				</div>
+				<div class="modal-footer">
+				  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+				 
+				</div>
+			  </div>
+			  {% endfor %}
+						{% endif %}
+			</div>
+		</div>
+
+		<div class="modal fade" id="exampleModal9" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+			<div class="modal-dialog" role="document">
+				{% if bun %}
+					{% for u in bun %}
+			  <div class="modal-content" style="background-image: url({{u.post_image}}); background-size: cover;">
+				<div class="modal-header">
+				  <h5 class="modal-title" id="exampleModalLabel" style="text-transform: uppercase; font-size: 30px; text-align: center;
+				  font-weight: 700; color: white;">  {{u.artiste}} </h5>
+				  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				  </button>
+				</div>
+				<div class="modal-body" >
+					<div class="playlist-content">
+						<ul class="list-unstyled" style="color: white;">
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{u.song}}</h4>
+									<p><strong>Artist</strong>: {{u.artiste}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{u.post_music}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{u.song2}}</h4>
+									<p><strong>Artist</strong>: {{u.artiste2}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{u.post_music2}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{u.song3}}</h4>
+									<p><strong>Artist</strong>: {{u.artiste3}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{u.post_music3}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{u.song4}}</h4>
+									<p><strong>Artist</strong>: {{u.artiste4}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{u.post_music4}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{u.song5}}</h4>
+									<p><strong>Artist</strong>: {{u.artiste5}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{u.post_music5}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{u.song6}}</h4>
+									<p><strong>Artist</strong>: {{u.artiste6}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{u.post_music6}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{u.song7}}</h4>
+									<p><strong>Artist</strong>: {{u.artiste7}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{u.post_music7}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							
+							
+						</ul>
+					</div>
+				</div>
+				<div class="modal-footer">
+				  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+				 
+				</div>
+			  </div>
+			  {% endfor %}
+						{% endif %}
+			</div>
+		</div>
+
+		<div class="modal fade" id="exampleModal10" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+			<div class="modal-dialog" role="document">
+				{% if foe %}
+					{% for f in foe %}
+			  <div class="modal-content" style="background-image: url({{f.post_image}}); background-size: cover; background-position: 600px;">
+				<div class="modal-header">
+				  <h5 class="modal-title" id="exampleModalLabel" style="text-transform: uppercase; font-size: 30px; text-align: center;
+				  font-weight: 700; color: white;">  {{f.artiste}} </h5>
+				  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				  </button>
+				</div>
+				<div class="modal-body" >
+					<div class="playlist-content">
+						<ul class="list-unstyled" style="color: white;">
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{f.song}}</h4>
+									<p><strong>Artist</strong>: {{f.artiste}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{f.post_music}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{f.song2}}</h4>
+									<p><strong>Artist</strong>: {{f.artiste2}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{f.post_music2}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{f.song3}}</h4>
+									<p><strong>Artist</strong>: {{f.artiste3}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{f.post_music3}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{f.song4}}</h4>
+									<p><strong>Artist</strong>: {{f.artiste4}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{f.post_music4}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{f.song5}}</h4>
+									<p><strong>Artist</strong>: {{f.artiste5}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{f.post_music5}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{f.song6}}</h4>
+									<p><strong>Artist</strong>: {{f.artiste6}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{f.post_music6}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{f.song7}}</h4>
+									<p><strong>Artist</strong>: {{f.artiste7}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{f.post_music7}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							
+							
+						</ul>
+					</div>
+				</div>
+				<div class="modal-footer">
+				  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+				 
+				</div>
+			  </div>
+			  {% endfor %}
+						{% endif %}
+			</div>
+		</div>
+
+		<div class="modal fade" id="exampleModal11" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+			<div class="modal-dialog" role="document">
+				{% if ten %}
+					{% for t in ten %}
+			  <div class="modal-content" style="background-image: url({{t.post_image}}); background-size: cover; background-position: 600px;">
+				<div class="modal-header">
+				  <h5 class="modal-title" id="exampleModalLabel" style="text-transform: uppercase; font-size: 30px; text-align: center;
+				  font-weight: 700; color: rgb(0, 0, 0);">  {{t.artiste}} </h5>
+				  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				  </button>
+				</div>
+				<div class="modal-body" >
+					<div class="playlist-content">
+						<ul class="list-unstyled" style="color: rgb(2, 255, 78);">
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{t.song}}</h4>
+									<p><strong>Artist</strong>: {{t.artiste}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{t.post_music}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{t.song2}}</h4>
+									<p><strong>Artist</strong>: {{t.artiste2}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{t.post_music2}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{t.song3}}</h4>
+									<p><strong>Artist</strong>: {{t.artiste3}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{t.post_music3}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{t.song4}}</h4>
+									<p><strong>Artist</strong>: {{t.artiste4}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{t.post_music4}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{t.song5}}</h4>
+									<p><strong>Artist</strong>: {{t.artiste5}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{t.post_music5}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{t.song6}}</h4>
+									<p><strong>Artist</strong>: {{t.artiste6}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{t.post_music6}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{t.song7}}</h4>
+									<p><strong>Artist</strong>: {{t.artiste7}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{t.post_music7}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							
+							
+						</ul>
+					</div>
+				</div>
+				<div class="modal-footer">
+				  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+				 
+				</div>
+			  </div>
+			  {% endfor %}
+						{% endif %}
+			</div>
+		</div>
+
+		<div class="modal fade" id="exampleModal12" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+			<div class="modal-dialog" role="document">
+				{% if cup %}
+					{% for c in cup %}
+			  <div class="modal-content" style="background-image: url({{c.post_image}}); background-size: cover; background-position: 600px;">
+				<div class="modal-header">
+				  <h5 class="modal-title" id="exampleModalLabel" style="text-transform: uppercase; font-size: 30px; text-align: center;
+				  font-weight: 700; color: rgb(0, 0, 0);">  {{c.artiste}} </h5>
+				  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				  </button>
+				</div>
+				<div class="modal-body" >
+					<div class="playlist-content">
+						<ul class="list-unstyled" style="color: rgb(0, 0, 0);">
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{c.song}}</h4>
+									<p><strong>Artist</strong>: {{c.artiste}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{c.post_music}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{c.song2}}</h4>
+									<p><strong>Artist</strong>: {{c.artiste2}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{c.post_music2}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{c.song3}}</h4>
+									<p><strong>Artist</strong>: {{c.artiste3}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{c.post_music3}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{c.song4}}</h4>
+									<p><strong>Artist</strong>: {{c.artiste4}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{c.post_music4}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{c.song5}}</h4>
+									<p><strong>Artist</strong>: {{c.artiste5}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{c.post_music5}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{c.song6}}</h4>
+									<p><strong>Artist</strong>: {{c.artiste6}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{c.post_music6}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							<li class="playlist-number">
+								<!-- song information -->
+								<div class="song-info">
+									<!-- song title -->
+									<h4>{{c.song7}}</h4>
+									<p><strong>Artist</strong>: {{c.artiste7}} &nbsp;|&nbsp; </p>
+								</div>
+								<!-- music icon -->
+								<div class="music-icon">
+									<audio controls=""  name="media"><source src="{{c.post_music7}}" type="audio/mpeg"></audio>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+							
+							
+						</ul>
+					</div>
+				</div>
+				<div class="modal-footer">
+				  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+				 
+				</div>
+			  </div>
+			  {% endfor %}
+						{% endif %}
+			</div>
+		</div>
+
+		
+	</body>	
+</html>
